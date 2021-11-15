@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyFirstDatabase</title>
+</head>
+<body>
+    <h1>Chat App</h1>
+    <p>Enter your name, message and start chatting my G!</p>
+    <form action="/add-message" method="post">
+        <input type="text" name="name" placeholder="Enter your name">
+        <br>
+        <br>
+        <textarea name="message" placeholder="Enter your message"></textarea>
+        <br>
+        <button type="submit">Send</button>
+    </form>
+
+    <hr style="margin-top:20px; margin-bottom:10px">
+
+    <h2>Messages:</h2>
+    {% for message in messages %}
+        <strong>{{ message.author }}:</strong>
+        {{ message.text }}
+        <br>
+        <br>
+    {% endfor %}
+</body>
+</html>
