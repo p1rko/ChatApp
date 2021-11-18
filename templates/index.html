@@ -19,11 +19,19 @@
     <hr style="margin-top:20px; margin-bottom:10px">
 
     <h2>Messages:</h2>
-    {% for message in messages %}
+    <!-- <p><i>Number of pages: {{ messages.pages }}</i></p> -->
+
+    {% for message in messages.items %}
         <strong>{{ message.author }}:</strong>
         {{ message.text }}
         <br>
         <br>
     {% endfor %}
+
+    <p>
+        {% for page_num in range(messages.pages) %}
+            <a href="/?page={{ page_num+1 }}">Page {{ page_num+1 }}</a>
+        {% endfor %}
+    </p>
 </body>
 </html>
